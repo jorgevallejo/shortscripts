@@ -1,0 +1,35 @@
+#! /bin/bash
+
+# Jorge Vallejo Ortega
+# 20200128
+
+# Abre una lista de urls relacionadas con la busqueda
+# de trabajo en diferentes pestañas de Firefox
+
+# Lista de urls
+url_list=(
+    "https://administracion.gob.es/pagFront/empleoBecas/empleo/buscadorEmpleoAvanzado.htm"
+    "http://www.cipf.es/es/empleo"
+    "http://fisabio.san.gva.es/empleo"
+    "https://www.iislafe.es/es/empleo/"
+    "http://www.incliva.es/empleo"
+    "http://www.infojobs.net/"
+    "https://www.progenie-molecular.com/Empleo_ES.html"
+)
+
+# Opens a new Firefox window
+firefox -new-window "${url_list[0]}"
+
+sleep 1 # Otherwise the first website does not load
+
+# Bucle para cada url
+for ((url=1; url<${#url_list[@]}; url+=1)); do
+    firefox -new-tab "${url_list[url]}"
+done
+
+##The following commented code works as a test
+# echo "${url_list[0]}"
+
+# for ((url=1; url<${#url_list[@]}; url+=1)); do
+#    echo "${url_list[url]}"
+# done

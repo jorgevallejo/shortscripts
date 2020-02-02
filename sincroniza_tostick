@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# sincroniza_tostick -- script for sincronizing the UOC folder in Linux with
+# the UOC folder in the pendrive.
+
+# Jorge Vallejo - 08/10/2019
+
+
+# Beware, it deletes those files in destiny that are not longer in the origin.
+# This first version (commented) is just a dry-run
+#rsync -avzhni --delete /home/student/UOC-master/ /media/student/1897-F445/UOC-master
+
+# This other version is the one that actually makes the changes
+rsync -avzh --delete /home/jorge/UOC-master/ /media/jorge/KURONEKO/UOC-master
+
+###TODO###
+
+# Check that origin directory and target directory both exist.
+
+# Choose between dry run and real run.
