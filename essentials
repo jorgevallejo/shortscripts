@@ -15,6 +15,7 @@ url_list=(
     "http://www.incliva.es/empleo"
     "http://www.infojobs.net/"
     "https://www.progenie-molecular.com/Empleo_ES.html"
+    "https://inb-elixir.es/jobs"
 )
 
 # Opens a new Firefox window
