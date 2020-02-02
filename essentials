@@ -33,3 +33,7 @@ done
 # for ((url=1; url<${#url_list[@]}; url+=1)); do
 #    echo "${url_list[url]}"
 # done
+
+# Opens the Calc document
+
+libreoffice --calc /media/jorge/Almacen/Documentos/Dropbox/'Trabajo - Buscar trabajo.xlsx'
