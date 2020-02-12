@@ -14,6 +14,10 @@
 # Funciona bien si sencillamente usamos esta URL:
 # https://www.google.com/maps/place/Calle+Valencia,+58,+Manises
 
+# Sin embargo no funciona bien si buscamos algo que no sean direcciones.
+# Para buscar tanto direcciones como comercios es mejor utilizar:
+# https://www.google.com/maps/search/
+
 import webbrowser, sys, pyperclip
 if len(sys.argv) > 1:
     #Get address from command line.
@@ -22,4 +26,4 @@ else:
     # Get address from clipboard
     address = pyperclip.paste()
 
-webbrowser.open('https://google.com/maps/place/' + address)
+webbrowser.open('https://google.com/maps/search/' + address)
