@@ -1,0 +1,25 @@
+#! /usr/bin/env python3
+
+# Jorge Vallejo Ortega - 27/11/2019
+# Python 3.6
+
+# mapIt.py - Launches a map in the browser using an address
+# from the command line or clipboard.
+
+# Ejemplo de URL en Google Maps con dirección:
+# Calle Valencia, 58, Manises
+# se convierte en:
+# https://www.google.com/maps/place/Calle+Valencia,+58,+46940+Manises,+Valencia/@39.4860275,-0.4525495,17z/data=!3m1!4b1!4m5!3m4!1s0xd605aaaacfc16d7:0x22af3ef8607f3537!8m2!3d39.4860275!4d-0.4503608
+
+# Funciona bien si sencillamente usamos esta URL:
+# https://www.google.com/maps/place/Calle+Valencia,+58,+Manises
+
+import webbrowser, sys, pyperclip
+if len(sys.argv) > 1:
+    #Get address from command line.
+    address = ' '.join(sys.argv[1:])
+else:
+    # Get address from clipboard
+    address = pyperclip.paste()
+
+webbrowser.open('https://google.com/maps/place/' + address)
