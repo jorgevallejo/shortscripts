@@ -5,6 +5,8 @@
 
 # mangadex_scp.py - Downloads manga from Mangadex
 
+# It seems that you need to be logged to search.
+
 # From the URL of the main, it is supposed to:
 # Get the URL for each volume and chapter
 # Download each page
@@ -14,6 +16,7 @@
 
 
 # Example URL:
+# https://mangadex.org/search?title=oreimo
 # https://mangadex.org/title/274/ore-no-imouto-ga-konna-ni-kawaii-wake-ga-nai
 
 
