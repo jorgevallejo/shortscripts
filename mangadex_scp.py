@@ -20,10 +20,14 @@
 # https://mangadex.org/title/274/ore-no-imouto-ga-konna-ni-kawaii-wake-ga-nai
 
 
-import webbrowser, sys
+import webbrowser, sys, pyperclip
 if len(sys.argv) > 1:
-    #Get address from command line.
-    url = ' '.join(sys.argv[1:])
+    #Get name from command line.
+    name = ' '.join(sys.argv[1:])
+else:
+    # Get address from clipboard
+    name = pyperclip.paste()
 
-print(url)
-# TODO: Get address from clipboard.
+#print(name)
+
+webbrowser.open('https://mangadex.org/search?title=' + name)
