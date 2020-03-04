@@ -12,10 +12,10 @@
 #   links, modification timestamps, ownership, nor special files and devices;
 #   hence, the options: recursive, verbose, compress, human readable.
 
-#rsync -rvzhni --delete /home/student/UOC-master/ /media/student/1897-F445/UOC-master
+#rsync -trvzhni --delete /home/student/UOC-master/ /media/student/1897-F445/UOC-master
 
 # This other version is the one that actually makes the changes
-rsync -rvzh --delete /home/jorge/UOC-master/ /media/jorge/KURONEKO/UOC-master
+rsync -trvzh --delete /home/jorge/UOC-master/ /media/jorge/KURONEKO/UOC-master
 
 ###TODO###
 
