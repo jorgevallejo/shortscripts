@@ -12,10 +12,18 @@
 #   links, modification timestamps, ownership, nor special files and devices;
 #   hence, the options: recursive, verbose, compress, human readable.
 
-#rsync -trvzhni --delete /home/student/UOC-master/ /media/student/1897-F445/UOC-master
+
+# Setting variables
+desktop=EnUOC-master # Folder in desktop
+USB=KURONEKO/UOC-master # Folder in USB pendrive
+
+
+# Using $HOME and $USER variables so I can use it in any of my computers.
+
+#rsync -trvzhni --delete $HOME/EnUOC-master/ /media/$USER/KURONEKO/UOC-master
 
 # This other version is the one that actually makes the changes
-rsync -trvzh --delete /home/jorge/EnUOC-master/ /media/jorge/KURONEKO/UOC-master
+rsync -trvzh --delete $HOME/$desktop/ /media/$USER/$USB
 
 ###TODO###
 
