@@ -24,11 +24,9 @@ USB=KURONEKO/UOC-master # Folder in USB pendrive
 # Check if the user wants a dry run or a real run
 if [ "$1" = '-d' ] || [ "$1" = '--dry' ]
 then
-    #echo "$1"
     rsync -trvzhni --delete $HOME/EnUOC-master/ /media/$USER/KURONEKO/UOC-master
 elif [ "$1" = '' ]
 then
-    #echo "Real run"
 # This other version is the one that actually makes the changes
     rsync -trvzh --delete $HOME/$desktop/ /media/$USER/$USB
 else
@@ -42,6 +40,6 @@ fi
 
 # Check that origin directory and target directory both exist.
 
-# Choose between dry run and real run.
+# Choose between desktop-to-stick or stick-to-desktop
 
 # Make a call for help
