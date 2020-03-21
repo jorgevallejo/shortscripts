@@ -20,13 +20,22 @@ USB=KURONEKO/UOC-master # Folder in USB pendrive
 
 # Using $HOME and $USER variables so I can use it in any of my computers.
 
-#rsync -trvzhni --delete $HOME/EnUOC-master/ /media/$USER/KURONEKO/UOC-master
 
+# Check if the user wants a dry run or a real run
+if [ "$1" = '-d' ]
+then
+    #echo "$1"
+    rsync -trvzhni --delete $HOME/EnUOC-master/ /media/$USER/KURONEKO/UOC-master
+else
+    #echo "Real run"
 # This other version is the one that actually makes the changes
-rsync -trvzh --delete $HOME/$desktop/ /media/$USER/$USB
+    rsync -trvzh --delete $HOME/$desktop/ /media/$USER/$USB
+fi
 
 ###TODO###
 
 # Check that origin directory and target directory both exist.
 
 # Choose between dry run and real run.
+
+# Make a call for help
