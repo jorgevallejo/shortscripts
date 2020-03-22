@@ -3,7 +3,7 @@
 # sincroniza_tostick -- script for sincronizing the UOC folder in Linux with
 # the UOC folder in the pendrive.
 
-# Jorge Vallejo - 16/02/2020 - version 2
+# Jorge Vallejo - 16/02/2020 - version 3
 
 
 # Beware, it deletes those files in destiny that are not longer in the origin.
@@ -12,23 +12,22 @@
 #   links, modification timestamps, ownership, nor special files and devices;
 #   hence, the options: recursive, verbose, compress, human readable.
 
+# Using $HOME and $USER variables so I can use it in any of my computers.
 
 # Setting variables
-desktop=EnUOC-master # Folder in desktop
-USB=KURONEKO/UOC-master # Folder in USB pendrive
+desktop="$HOME"/EnUOC-master # Folder in desktop
+USB=/media/"$USER"/KURONEKO/UOC-master # Folder in USB pendrive
 
-
-# Using $HOME and $USER variables so I can use it in any of my computers.
 
 
 # Check if the user wants a dry run or a real run
 if [ "$1" = '-d' ] || [ "$1" = '--dry' ]
 then
-    rsync -trvzhni --delete $HOME/EnUOC-master/ /media/$USER/KURONEKO/UOC-master
+    rsync -trvzhni --delete "$desktop"/ "$USB"
 elif [ "$1" = '' ]
 then
 # This other version is the one that actually makes the changes
-    rsync -trvzh --delete $HOME/$desktop/ /media/$USER/$USB
+    rsync -trvzh --delete "$desktop"/ "$USB"
 else
     echo 
     echo 'Option not found.'
