@@ -3,7 +3,7 @@
 # sincroniza_tostick -- script for sincronizing the UOC folder in Linux with
 # the UOC folder in the pendrive.
 
-# Jorge Vallejo - 16/02/2020 - version 3
+# Jorge Vallejo - 16/02/2020 - version 4
 
 
 # Beware, it deletes those files in destiny that are not longer in the origin.
@@ -18,6 +18,11 @@
 desktop="$HOME"/EnUOC-master # Folder in desktop
 USB=/media/"$USER"/KURONEKO/UOC-master # Folder in USB pendrive
 
+
+# Check if origin and target directories exit
+[ -d "$desktop" ] || { echo "El directorio $desktop no existe" >&2; exit 1; }
+
+[ -d "$USB" ] || { echo "El directorio $USB no existe" >&2; exit 1; }
 
 
 # Check if the user wants a dry run or a real run
@@ -36,8 +41,6 @@ else
 fi
 
 ###TODO###
-
-# Check that origin directory and target directory both exist.
 
 # Choose between desktop-to-stick or stick-to-desktop
 
