@@ -3,12 +3,12 @@
 # sincroniza_tostick -- script for sincronizing the UOC folder in Linux with
 # the UOC folder in the pendrive.
 
-# Jorge Vallejo - 16/02/2020 - version 4
+# Jorge Vallejo - 16/02/2020 - version 5
 
 
 # Beware, it deletes those files in destiny that are not longer in the origin.
 # This first version (commented) is just a dry-run
-# Since it sincronizes with an NTFS filesystem from an ext4(?) it is better not to compare permissions,
+# Since it synchronises with an NTFS filesystem from an ext4(?) it is better not to compare permissions,
 #   links, modification timestamps, ownership, nor special files and devices;
 #   hence, the options: recursive, verbose, compress, human readable.
 
@@ -26,17 +26,24 @@ USB=/media/"$USER"/KURONEKO/UOC-master # Folder in USB pendrive
 
 
 # Check if the user wants a dry run or a real run
-if [ "$1" = '-d' ] || [ "$1" = '--dry' ]
+if [ "$1" = '-n' ] || [ "$1" = '--dry' ]
 then
     rsync -trvzhni --delete "$desktop"/ "$USB"
 elif [ "$1" = '' ]
 then
 # This other version is the one that actually makes the changes
-    rsync -trvzh --delete "$desktop"/ "$USB"
+    rsync -trvzhi --delete "$desktop"/ "$USB"
+# Synchronise *from* stick *to* computer (dry)
+elif [ "$1" = '-rn' ] || [ "$1" = '--reverse-dry' ]
+then
+    rsync -trvzhni --delete "$USB"/ "$desktop"
+elif [ "$1" = '-r' ] || [ "$1" = '--reverse' ]
+then
+    rsync -trvzhi --delete "$USB"/ "$desktop"
 else
     echo 
     echo 'Option not found.'
-    echo 'Please use -d, --dry, or nothing.'
+    echo 'Please use -n (dry run), nothing (to stick), -rn (dry from stick), or -r (from stick)'
     echo
 fi
 
