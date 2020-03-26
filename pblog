@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This script calls pandoc to transform a
+# markdown document into an html document.
+
+# Variable with the name of the target file
+# from the name of the origin file
+target=$(echo "$1" | sed 's/md/html/')
+
+pandoc "$1" -f markdown -t html -s -o "$target"
