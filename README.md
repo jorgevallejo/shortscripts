@@ -11,6 +11,9 @@ Opens Google Maps
 $ mapit [address]
 The address can be stored in the clipboard.
 
+### pblog
+Uses pandoc to transform a Markdown document
+into an html document.
 
 ### README
 This document.
