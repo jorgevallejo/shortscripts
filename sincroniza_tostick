@@ -40,6 +40,17 @@ then
 elif [ "$1" = '-r' ] || [ "$1" = '--reverse' ]
 then
     rsync -trvzhi --delete "$USB"/ "$desktop"
+# Help text
+elif [ "$1" = '-h' ] || [ "$1" = '--help' ]
+then
+    echo
+    echo 'sincroniza_stick [OPTION]'
+    echo 'No option: By default, synchronise from computer to pendrive.'
+    echo '-n, --dry: Dry-run from computer to pendrive.'
+    echo '-r, --reverse: Synchronise from pendrive to computer.'
+    echo '-rn, --reverse-dry: Dry run from pendrive to computer.'
+    echo '-h, --help: This text stating the options.'
+    echo 
 else
     echo 
     echo 'Option not found.'
@@ -48,7 +59,5 @@ else
 fi
 
 ###TODO###
-
-# Choose between desktop-to-stick or stick-to-desktop
 
 # Make a call for help
