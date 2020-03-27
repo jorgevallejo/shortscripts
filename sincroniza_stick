@@ -54,10 +54,6 @@ then
 else
     echo 
     echo 'Option not found.'
-    echo 'Please use -n (dry run), nothing (to stick), -rn (dry from stick), or -r (from stick)'
+    echo 'Please use -h (for help), -n (dry run), nothing (to stick), -rn (dry from stick), or -r (from stick)'
     echo
 fi
-
-###TODO###
-
-# Make a call for help
