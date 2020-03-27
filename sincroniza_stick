@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# sincroniza_tostick -- script for sincronizing the UOC folder in Linux with
+# sincroniza_stick -- script for sincronizing the UOC folder in Linux with
 # the UOC folder in the pendrive.
 
-# Jorge Vallejo - 16/02/2020 - version 5
+# Jorge Vallejo - 27/03/2020 - version 6
 
 
 # Beware, it deletes those files in destiny that are not longer in the origin.
