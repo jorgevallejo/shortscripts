@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# t25 -- script for use as a timer
+
+# Jorge Vallejo - 31/03/2020 - version 1
+
+
+# Timer with music
+# Warning: it only works in machine Darwin
+# Warning: I do not know an easy way to pause the sleep task
+
+# Variables
+music="/media/jorge/Almacen/Jorge/Música/01/The Beatles - Because.mp3"
+time=25m
+
+[ "$1" = '' ] || time="$1"
+
+
+# Timer function
+sleep "$time" && nvlc "$music"
+
+
+# Use
+## t25 [NUMBER][SUFFIX]
+## Just a wrapper around sleep function.
+## Suffix can be 's', 'm', 'h'. It is 's' by default.
+## Number is the seconds, minutes or hours that will be passed
+## to sleep function.
+## The default is '25m' (a pomodoro).
+
+## The variable 'music' is the address to a file that can be
+## read by nvlc (preferably music).
