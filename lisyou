@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Jorge Vallejo Ortega - 21/04/2020 - Version 0.1
+
+# This script reads the content of the directory,
+# and formats the names of the files into csv.
+
+# The goal is to get a list of files downloaded from Youtube
+# into a format easily copied into 'Mediateca' spreadsheet.
+
+# The final fields will be:
+# <channel>;<title>;<file extension>
+
+ls "$1" -N | sed 's/-/;/' | sed 's/[[:alnum:]][[:alnum:]][[:alnum:]]$/;&/' | sed 's/\.;/;/'

@@ -5,6 +5,16 @@ This repo contains short, little scripts that I use on my day to day.
 ### essentials
 Opens websites and files that I use when looking for jobs.
 
+### lisyou
+This script reads the content of the directory,
+and formats the names of the files into csv.
+
+The goal is to get a list of files downloaded from Youtube
+into a format easily copied into a spreadsheet.
+
+The final fields will be:
+<channel>;<title>;<file extension>
+
 ### mapit
 This one is copied from 'Automate the Boring Stuff' by Al Sweigart.
 Opens Google Maps
