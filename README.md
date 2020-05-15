@@ -15,6 +15,18 @@ into a format easily copied into a spreadsheet.
 The final fields will be:
 <channel>;<title>;<file extension>
 
+### listfiles
+I wrote this short script to quickly dump all the
+free Springer books (freed during COVID19 pandemia)
+into my 'Mediateca' database.
+
+This script reads the content of the directory;
+for each directory, lists the files in it,
+modifies the listing to the format I use to
+register books in my 'Mediateca' database,
+writes the formatted list in a text file,
+and continues with the next directory.
+
 ### mapit
 This one is copied from 'Automate the Boring Stuff' by Al Sweigart.
 Opens Google Maps

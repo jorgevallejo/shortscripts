@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Jorge Vallejo Ortega - 15/05/2020 - Version 0.1
+
+# I wrote this short script to quickly dump all the
+# free Springer books (freed during COVID19 pandemia)
+# into my 'Mediateca' database.
+
+# This script reads the content of the directory;
+# for each directory, lists the files in it,
+# modifies the listing to the format I use to
+# register books in my 'Mediateca' database,
+# writes the formatted list in a text file,
+# and continues with the next directory.
+
+# Structure in disk:
+#   springer_quarantine_books
+#     Behavioral Science
+#       <title> - <year>.pdf
+
+# The format I use for books in 'Mediateca':
+# Autor;Título;Situación;Tipo de archivo;Año de edición;Idioma;Año original;Formato;Id_género;Género;Tema;Fecha de entrada;
+
+# The final fields will be:
+# "Springer";$title;"pHD;"pdf";"";"Inglés";$year;"Manual";"";"No ficción";$directory;"15/05/2020"
+
+# Create blank file
+# The name of the file will be date and time,
+# plus "temp" to tag it as a temporal file.
+
+tempfile="$(date +"%Y%m%dT%H%M").temp"
+campos1=";pHD;pdf;;Inglés;"
+campos2=";Manual;;No ficción;penespenes;15/05/2020"
+# touch $tempfile
+cd "$1"
+# Iterate through the directories
+for directory in */; do
+    directory=${directory%*/}
+#    echo "$directory" >> "$tempfile"
+    ls "$directory" -N |
+    sed 's/^/Springer;/' | #Adds at the end of each line
+    sed 's/[[:digit:]]\{4\}/;&/' | #Adds before the year
+    # Substitute " - " or " " before each ";"
+    sed "s/\([[:space:]]-\)*[[:space:]];/$campos1/" |
+    # Substitute ".pdf" for the last fields
+    sed "s#\.pdf#$campos2#" |
+    # Insert directory as "Tema"
+    sed "s/penespenes/$directory/" >> "$tempfile"
+    
+done
