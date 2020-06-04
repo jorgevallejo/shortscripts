@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Jorge Vallejo Ortega - 04/06/2020 - Version 0.3
+# Jorge Vallejo Ortega - 04/06/2020 - Version 0.2
 
 # This script reads the content of the directory,
 # and formats the names of the files into csv.
