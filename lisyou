@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Jorge Vallejo Ortega - 21/04/2020 - Version 0.1
+# Jorge Vallejo Ortega - 04/06/2020 - Version 0.2
 
 # This script reads the content of the directory,
 # and formats the names of the files into csv.
@@ -11,4 +11,8 @@
 # The final fields will be:
 # <channel>;<title>;<file extension>
 
-ls "$1" -N | sed 's/-/;/' | sed 's/[[:alnum:]][[:alnum:]][[:alnum:]]$/;&/' | sed 's/\.;/;/'
+
+ls "$1" -N | # Print entry names without quoting
+sed 's/-/;/' | # Change first hyphen for ;
+sed 's/[[:alnum:]][[:alnum:]][[:alnum:]]$/;&/' | # Insert ; before file extension
+sed 's/\.;/;/' # Get rid of the last dot
