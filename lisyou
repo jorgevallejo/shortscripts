@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Jorge Vallejo Ortega - 04/06/2020 - Version 0.2
+# Jorge Vallejo Ortega - 04/06/2020 - Version 0.3
 
 # This script reads the content of the directory,
 # and formats the names of the files into csv.
@@ -13,6 +13,7 @@
 
 
 ls "$1" -N | # Print entry names without quoting
-sed 's/-/;/' | # Change first hyphen for ;
+grep -E 'mp4$|mkv$' | # Recovers video files
+#sed 's/-/;/' | # Change first hyphen for ;
 sed 's/[[:alnum:]][[:alnum:]][[:alnum:]]$/;&/' | # Insert ; before file extension
 sed 's/\.;/;/' # Get rid of the last dot
