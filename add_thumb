@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Jorge Vallejo Ortega - 15/07/2020 - Version 0.1
+
+# I wrote this short script to attach jpg files
+# to mp4 files as cover images using ffmpeg.
+
+# This script creates an output directory,
+# for each mp4 file and jpg file OF THE SAME NAME
+# makes a new mp4 file and saves it in the output
+# directory.
+
+#### TODO LIST ####
+# - Manage cases in which a video does not have
+#   a corresponding image file.
+#
+# - Manage other formats of video and image.
+#   -> Warning: do not use ffmpeg for mkv video files,
+#               I am trying to use mkvtoolnix for that.
+###################
+
+output_directory="output"
+
+# Check if directory out already exists
+if [ ! -d "$output_directory" ]; then
+    mkdir "$output_directory" # Create if not
+fi
+
+for filename in *.mp4; do
+    # Check if filename exists (useful when no mp4 in the directory)
+    [ -e "$filename" ] || continue
+
+    # Variables to simplify mmfpeg command later
+    video_input="$filename"
+    image_input="$(basename "$filename" .mp4).jpg"
+    video_output=""$output_directory"/$filename"
+
+    # Add jpg image to mp4 video and save result in output directory
+    ffmpeg -i "$video_input" -i "$image_input" -map 1 -map 0 -c copy -disposition:0 attached_pic "$video_output"
+done
