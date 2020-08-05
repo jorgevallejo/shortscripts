@@ -2,6 +2,9 @@ This repo contains short, little scripts that I use on my day to day.
 
 ## Contents
 
+### add_thumb
+Attaches jpg files to mp4 files as cover images using ffmpeg.
+
 ### essentials
 Opens websites and files that I use when looking for jobs.
 
@@ -45,3 +48,7 @@ Syncs UOC-master's documents between USB pendrive and my laptops.
 
 ### t25
 Timer with music alarm.
+
+### zip_comic
+Compresses all directories into the working directory
+to independent zip files.
