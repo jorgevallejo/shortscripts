@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Jorge Vallejo Ortega - 05/08/2020 - Version 0.1
+
+# I wrote this short script to group imagefiles from
+# a directory into a zip file, for every directory
+# in the working directory.
+
+# Basically, for saving downloaded images (mostly comics)
+# in a format easily read by a  comic reader.
+
+# For each directory in the working directory,
+# recursively compresses the contained files,
+# and saves them in a zip file
+# with the same name that the compressed directory had.
+
+
+#### TODO LIST ####
+#
+###################
+
+# output_directory="output"
+
+# Check if directory out already exists
+#if [ ! -d "$output_directory" ]; then
+#    mkdir "$output_directory" # Create if not
+#fi
+
+for directory in */; do
+    # Check if directory exists (useful when no directories in pwd)
+    [ -e "$directory" ] || continue
+
+    # Variables to simplify mmfpeg command later
+   # video_input="$filename"
+   # image_input="$(basename "$filename" .mp4).jpg"
+   # video_output=""$output_directory"/$filename"
+
+    # Recursively zip the directory
+    # No compression because the files will usually be
+    # already compressed images.
+    zip -r0 "$(basename "$directory").zip" "$directory"
+done
